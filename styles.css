@@ -8,6 +8,11 @@ body {
     background-color: #f4f4f9;
 }
 
+img {
+    max-width: 100px;
+    height: auto;
+}
+
 .signup-container {
     text-align: center;
     padding: 2em;
