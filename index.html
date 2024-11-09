@@ -9,11 +9,15 @@
 <body>
     <div class="signup-container">
         <h2>Xarik</h2>
-        <form id="signupForm">
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-            <button type="submit">Sign Up</button>
-        </form>
-        <p id="message"></p>
+        <button type="submit" onclick="openEmail()">Sign Up For Updates</button>
+        <script>
+            function openEmail() {
+                const recipient = "duke.xarik@gmail.com";  // Replace with the desired email address
+                const subject = "Please sign me up for Updates"; // Replace with the desired subject
+                const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}`;
+                window.location.href = mailtoLink;
+            }
+        </script>
     </div>
 </body>
 </html>
