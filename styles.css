@@ -1,6 +1,3 @@
-$primary-1: #ffb46b;
-$primary-2: #4fb3cb;
-
 html {
     @media (min-width: 601px) {
         font-size: calc(0.5vw + 9px);
@@ -27,7 +24,7 @@ body {
 }
 
 #wrap {
-    background: linear-gradient($primary-1 80vh, $primary-2 132.5vh);
+    background: linear-gradient(#ffb46b 80vh, #4fb3cb 132.5vh);
 }
 
 #getWaitlistContainer {
@@ -60,4 +57,3 @@ header {
 main {
     width: 100vw;
 }
-
