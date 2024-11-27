@@ -25,10 +25,10 @@ body {
 
 #wrap {
     background: linear-gradient(
-        #ffb46b -50vh,
+        #ffb46b -100vh,
         #ffb46b 80vh,
         #4fb3cb 132.5vh,
-        #4fb3cb 160vh
+        #4fb3cb 300vh
     );
 }
 
