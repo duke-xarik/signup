@@ -6,19 +6,15 @@
     <title>Xarik</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <div class="signup-container">
-        <img src="logo_Xarik_trimmed.png" alt="Xarik logo">
-        <p>do computer work actively</p>
-        <button type="submit" onclick="openEmail()">Email For Updates</button>
-        <script>
-            function openEmail() {
-                const recipient = "duke@xarik.com";  // Replace with the desired email address
-                const subject = "Please sign me up for Updates"; // Replace with the desired subject
-                const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}`;
-                window.location.href = mailtoLink;
-            }
-        </script>
+<body id="App">
+    <div id="wrap">
+        <header>
+            <img id="xarik-logo" src="https://xarik.com/logo_Xarik_trimmed.png" alt="Xarik logo">
+            <h3>work smarter move freely</h3>
+            <div id="getWaitlistContainer" data-waitlist_id="22621" data-widget_type="WIDGET_2"></div>
+            <link rel="stylesheet" type="text/css" href="https://prod-waitlist-widget.s3.us-east-2.amazonaws.com/getwaitlist.min.css" />
+            <script src="https://prod-waitlist-widget.s3.us-east-2.amazonaws.com/getwaitlist.min.js"></script>
+        </header>
     </div>
 </body>
 </html>
