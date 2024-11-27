@@ -12,6 +12,9 @@ body {
     padding: 0;
     margin: 0;
     font-family: "Poppins", sans-serif;
+    background: linear-gradient(#ffb46b 80vh, #4fb3cb 132.5vh);
+    background-size: 100% 100%;
+    background-attachment: fixed;
 }
 
 #xarik-logo {
@@ -21,11 +24,6 @@ body {
     @media (max-width: 768px), (min-device-pixel-ratio: 2) {
         width: 60%;
     }
-}
-
-#wrap {
-    background: linear-gradient(#ffb46b 80vh, #4fb3cb 132.5vh);
-    background-attachment: fixed;
 }
 
 #getWaitlistContainer {
