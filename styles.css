@@ -53,6 +53,9 @@ header {
     }
 }
 
-main {
-    width: 100vw;
+/* for verfied.html */
+
+#thanks-verifying {
+    margin-top: 2em;
+    font-size: 1.5em;
 }
