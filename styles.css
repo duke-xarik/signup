@@ -55,6 +55,10 @@ body {
     gap: 5%; /* Space between the email field and the button */
 }
 
+#responseMessage {
+    margin-top: 40px;
+}
+
 #email-field {
     padding: 0.5rem; /* Add padding inside the field */
     font-size: 1rem; /* Match the font size to the design */
