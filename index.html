@@ -1,20 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xarik</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body id="App">
-    <div id="wrap">
-        <header>
-            <img id="xarik-logo" src="logo_Xarik_trimmed.png" alt="Xarik logo">
-            <h3>work smarter move freely</h3>
-            <div id="getWaitlistContainer" data-waitlist_id="22621" data-widget_type="WIDGET_2"></div>
-            <link rel="stylesheet" type="text/css" href="https://prod-waitlist-widget.s3.us-east-2.amazonaws.com/getwaitlist.min.css" />
-            <script src="https://prod-waitlist-widget.s3.us-east-2.amazonaws.com/getwaitlist.min.js"></script>
-        </header>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>
+                <img src="https://xarik.com/logo_xarik.svg" alt="Xarik logo">
+            </h1>
+            <p class="tagline">work smarter, move freely</p>
+
+            <form id="signup-form">
+                <input type="email" placeholder="Enter your email" id="email-field">
+                <button type="submit" id="signup-button">Sign Up</button>
+            </form>
+            <p id="responseMessage"></p>
+        </div>
+    </header>
+    <div class="main-content">
+        <!-- Main content goes here -->
     </div>
+    <footer class="footer">
+        &copy; 2024 Xarik. All rights reserved.
+    </footer>
+
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', async function(event) {
+            console.log("Clicked Submit");
+            event.preventDefault(); // Prevent default form submission
+            const emailInput = document.getElementById('email-field').value.trim();
+            const responseMessage = document.getElementById('responseMessage');
+            // Validate email
+            const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (!emailRegex.test(emailInput)) {
+                responseMessage.textContent = "Invalid email address. Please try again.";
+                responseMessage.style.color = "red";
+                return;
+            }
+            responseMessage.textContent = "";
+            // Send email to POST API
+            try {
+                const response = await fetch('https://api.getwaitlist.com/api/v1/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: emailInput,
+                        waitlist_id: 22621,
+                        referral_link: document.URL,
+                    }),
+                });
+                console.log("Response", response);
+                if (response.ok) {
+                    const data = await response.json();
+                    responseMessage.textContent = `Please check for a verfication email`;
+                    responseMessage.style.color = "black";
+                } else {
+                    responseMessage.textContent = "Failed to submit email. Please try again.";
+                    responseMessage.style.color = "red";
+                }
+            } catch (error) {
+                responseMessage.textContent = "Error connecting to the server.";
+                responseMessage.style.color = "red";
+            }
+        });
+    </script>
 </body>
+
 </html>
