@@ -34,6 +34,7 @@
         document.getElementById('signup-form').addEventListener('submit', async function(event) {
             console.log("Clicked Submit");
             event.preventDefault(); // Prevent default form submission
+            const emailForm = document.getElementById('signup-form');
             const emailInput = document.getElementById('email-field').value.trim();
             const responseMessage = document.getElementById('responseMessage');
             // Validate email
@@ -60,6 +61,8 @@
                 console.log("Response", response);
                 if (response.ok) {
                     const data = await response.json();
+                    // Hide the form on success
+                    emailForm.style.display = "none";
                     responseMessage.textContent = `Please check for a verfication email`;
                     responseMessage.style.color = "black";
                 } else {
@@ -67,6 +70,7 @@
                     responseMessage.style.color = "red";
                 }
             } catch (error) {
+                console.log('Error', error);
                 responseMessage.textContent = "Error connecting to the server.";
                 responseMessage.style.color = "red";
             }
