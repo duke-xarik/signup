@@ -1,61 +1,153 @@
-html {
-    @media (min-width: 601px) {
-        font-size: calc(0.5vw + 9px);
-    }
-    @media (max-width: 768px), (min-device-pixel-ratio: 2) {
-        font-size: calc(1.4vw + 3px);
-    }
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    width: 100vw;
-    padding: 0;
-    margin: 0;
-    font-family: "Poppins", sans-serif;
-    background: linear-gradient(#ffb46b 80vh, #4fb3cb 132.5vh);
-    overflow: hidden;
-    background-color: #ffb46b;
-}
-
-#xarik-logo {
-    @media (min-width: 601px) {
-        width: 40%;
-    }
-    @media (max-width: 768px), (min-device-pixel-ratio: 2) {
-        width: 60%;
-    }
-}
-
-#getWaitlistContainer {
-    margin-top: 1em;
-    justify-content: center;
-    max-width: 80%;
-}
-
-input.gw-bg-transparent {
-    background: white !important;
-    border-width: 2px;
-}
-
-header {
+    font-family: Roboto, sans-serif;
+    line-height: 2;
+    min-height: 100vh; /* Ensure the body fills the viewport height */
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    flex-direction: column; /* Stacks the header, content, and footer vertically 
+    */
+    background: linear-gradient(
+        #ffb45c 80vh,
+        #4fb3cb 132.5vh
+    ); /* Gradient background */
+}
 
-    h3 {
-        margin: 0;
-        color: white;
-        font-size: 2em;
-        font-weight: 600;
-        white-space: nowrap;
+.header {
+    padding: 50px 0 1rem 0; /* Adds 50px padding at the top */
+    display: flex;
+    justify-content: center; /* Centers the entire header content horizontally */
+}
+
+.header .container {
+    position: relative; /* Enables precise positioning for the tagline */
+    width: 35%; /* Sets the width of the container to match the logo */
+    text-align: center; /* Centers the content horizontally */
+}
+
+.header h1 {
+    display: flex;
+    justify-content: center; /* Ensures the logo is centered within the container */
+}
+
+.header h1 img {
+    width: 100%; /* Logo occupies full width of its container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.header .tagline {
+    margin-top: 6px; /* Adds space between the logo and the tagline */
+    font-size: 1.3rem; /* Adjust font size for styling */
+    text-align: right; /* Align tagline text to the right */
+    position: static; /* Allow tagline to stay in normal flow */
+}
+
+/* Signup Form */
+#signup-form {
+    margin-top: 40px; /* Space between the tagline and the form */
+    display: flex; /* Align items in a row */
+    justify-content: left; /* Center the form horizontally */
+    gap: 5%; /* Space between the email field and the button */
+}
+
+#email-field {
+    padding: 0.5rem; /* Add padding inside the field */
+    font-size: 1rem; /* Match the font size to the design */
+    border: 1px solid #ccc; /* Light border for the input field */
+    border-radius: 5px; /* Optional rounded corners */
+    width: 65%; /* Adjust the width of the email field */
+    /*max-width: 300px; Prevent the field from becoming too wide */
+}
+
+#signup-button {
+    padding: 0.5rem 1rem; /* Padding around the button */
+    font-size: 1rem; /* Match the font size to the email field */
+    color: #000; /* Button text color */
+    background-color: #4fb3cb; /* Button background color */
+    width: 30%;
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Optional rounded corners */
+    cursor: pointer; /* Show a pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+#signup-button:hover {
+    background-color: #3fa1b6; /* Darken the button color on hover */
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1; /* Ensures this section grows to fill remaining space */
+    min-height: 60vh; /* Allocates at least 60% of the viewport height for content */
+}
+
+/* Footer */
+.footer {
+    background: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 1rem 0;
+    flex-shrink: 0; /* Prevents the footer from shrinking */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    #signup-form {
+        flex-direction: column; /* Stack email field and button vertically */
+        gap: 15px; /* Add space between stacked items */
+        align-items: center; /* Center-align stacked elements */
+    }
+
+    #email-field {
+        width: 100%; /* Make email field full-width on smaller screens */
+    }
+
+    #signup-button {
+        width: 100%; /* Make the button full-width to match email field */
     }
 }
 
-/* for verfied.html */
+@media (max-width: 768px) {
+    .header .container {
+        width: 65%; /* Sets the width of the container to match the logo */
+    }
 
-#thanks-verifying {
-    margin-top: 2em;
-    font-size: 1.5em;
+    #signup-form {
+        flex-direction: column; /* Stack email field and button vertically */
+        gap: 15px; /* Add space between stacked items */
+        align-items: center; /* Center-align stacked elements */
+    }
+
+    #email-field {
+        width: 100%; /* Make email field full-width on smaller screens */
+    }
+
+    #signup-button {
+        width: 100%; /* Make the button full-width to match email field */
+    }
+}
+
+@media (max-width: 480px) {
+    /*.header h1 img {
+        width: 80%;  Reduce logo size on very small screens 
+    }*/
+    .header .container {
+        width: 80%; /* Sets the width of the container to match the logo */
+    }
+
+    .header .tagline {
+        font-size: 1rem; /* Adjust tagline font size for smaller screens */
+    }
+    #email-field {
+        width: 100%; /* Make email field full-width on smaller screens */
+    }
+
+    #signup-button {
+        width: 100%; /* Make the button full-width to match email field */
+    }
 }
